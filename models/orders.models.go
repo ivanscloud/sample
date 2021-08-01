@@ -1,5 +1,7 @@
 package models
 
+import "time"
+
 type Orders struct {
 	ID           int       `gorm:"primarykey;AUTO_INCREMENT" json:"id"`
 	Customers_id int       `gorm:"not null" json:"customers_id"`
@@ -7,6 +9,7 @@ type Orders struct {
 	Address      string    `gorm:"type:varchar(255);not null" json:"address"`
 	Customer     Customers `gorm:"foreignKey:ID;references:Customers_id"`
 	Courier      Couriers  `gorm:"foreignkey:ID;references:couriers_id"`
+	CreatedAt    time.Time
 }
 
 type Orders_post struct {
