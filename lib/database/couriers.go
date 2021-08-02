@@ -12,4 +12,3 @@ func InsertCourier(courier models.Couriers) (interface{}, error) {
 	}
 	return courier, nil
 }
-	

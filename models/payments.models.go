@@ -12,7 +12,7 @@ type Payments struct {
 	Payment_end_date   time.Time `gorm:"not null" json:"payment_end_date"`
 	Payment_status     string    `gorm:"type:varchar(255);not null" json:"payment_status"`
 	Payment_amount     float32   `gorm:"type:float;not null" json:"payment_amount"`
-	Order              Orders    `gorm:"foreignkey:ID;references:Order_id" json:"-"`
+	Order              Orders    `gorm:"foreignkey:ID" json:"-"`
 }
 
 type Payments_update struct {

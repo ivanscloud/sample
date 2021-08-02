@@ -132,9 +132,9 @@ func UpdateProductsController(c echo.Context) error {
 	product.Name = utils.CompareStrings(product.Name, post_body.Name)
 	product.Description = utils.CompareStrings(product.Description, post_body.Description)
 	product.Unit = utils.CompareStrings(product.Unit, post_body.Unit)
-	product.Quantity = post_body.Quantity
-	product.Categories_id = post_body.Categories_id
-	product.Price = post_body.Price
+	product.Quantity = utils.CompareId(product.Quantity, post_body.Quantity)
+	product.Categories_id = utils.CompareId(product.Categories_id, post_body.Categories_id)
+	product.Price = utils.CompareId(product.Price, post_body.Price)
 
 	_, err := database.InsertProducts(product)
 	if err != nil {

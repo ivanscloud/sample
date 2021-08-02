@@ -51,7 +51,7 @@ func CreateCategoriesController(c echo.Context) error {
 
 	var categories models.Categories
 	categories.Name = post_body.Name
-	categories.Description = post_body.Name
+	categories.Description = post_body.Description
 
 	_, err := database.InsertCategories(categories)
 	if err != nil {

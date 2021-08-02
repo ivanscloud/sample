@@ -1,6 +1,8 @@
 package models
 
-import "time"
+import (
+	"time"
+)
 
 type Customers struct {
 	ID                  int    `gorm:"primarykey;AUTO_INCREMENT" json:"id"`
@@ -9,7 +11,7 @@ type Customers struct {
 	Password            string `gorm:"type:varchar(255);not null" json:"password"`
 	Address             string `gorm:"type:varchar(255);" json:"address"`
 	Bank_name           string `gorm:"type:varchar(255);" json:"bank_name"`
-	Bank_account_number string `gorm:"type:bigint(20);default:0;" json:"bank_account_number"`
+	Bank_account_number int    `gorm:"type:bigint(20);default:0;" json:"bank_account_number"`
 	CreatedAt           time.Time
 }
 
@@ -30,7 +32,7 @@ type Customers_update struct {
 	Email               string `json:"email" validate:"required,email"`
 	Address             string `json:"address"`
 	Bank_name           string `json:"bank_name"`
-	Bank_account_number string `json:"bank_account_number"`
+	Bank_account_number int    `json:"bank_account_number"`
 }
 
 type Customers_response struct {

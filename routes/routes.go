@@ -14,6 +14,7 @@ func Start() *echo.Echo {
 
 	jwtAuth := e.Group("")
 	jwtAuth.Use(middleware.JWT([]byte(constants.SECRET_JWT)))
+
 	//Route Products
 	jwtAuth.GET("/products", controllers.GetProductsController)
 	jwtAuth.POST("/products", controllers.CreateProductsController)

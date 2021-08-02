@@ -5,17 +5,17 @@ type Cartitems struct {
 	Carts_id    int      `gorm:"not null" json:"carts_id"`
 	Products_id int      `gorm:"foreignkey;not null" json:"products_id"`
 	Quantity    int      `gorm:"not null" json:"quantity"`
-	Carts       Carts    `gorm:"foreignkey:ID;references:carts_id" json:"-"`
-	Products    Products `gorm:"foreignkey:ID;references:products_id" json:"-"`
+	Carts       Carts    `gorm:"foreignkey:ID" json:"-"`
+	Products    Products `gorm:"foreignkey:ID" json:"-"`
 }
 
 type CartItems_response_user struct {
-	ID          int     `json:"id"`
-	Carts_id    int     `json:"carts_id"`
-	Products_id int     `json:"products_id"`
-	Name        string  `json:"name"`
-	Price       float32 `json:"price"`
-	Quantity    int     `json:"quantity"`
+	ID          int    `json:"id"`
+	Carts_id    int    `json:"carts_id"`
+	Products_id int    `json:"products_id"`
+	Name        string `json:"name"`
+	Price       int    `json:"price"`
+	Quantity    int    `json:"quantity"`
 }
 type CartItems_response_detail struct {
 	Code    int                       `json:"code"`
