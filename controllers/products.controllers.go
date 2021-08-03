@@ -58,7 +58,7 @@ func GetProducts(c echo.Context) error {
 	}
 }
 
-func CreateProductsController(c echo.Context) error {
+func CreateProducts(c echo.Context) error {
 
 	var post_body models.Products_post
 	// c.Bind(&post_body)

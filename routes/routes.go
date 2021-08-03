@@ -16,6 +16,7 @@ func Start() *echo.Echo {
 	jwtAuth.Use(middleware.JWT([]byte(constants.SECRET_JWT)))
 
 	//Route Products
+	jwtAuth.POST("/products", controllers.CreateProducts)
 	jwtAuth.GET("/products", controllers.GetProducts)
 	jwtAuth.PUT("/products/:id", controllers.UpdateProducts)
 	jwtAuth.DELETE("/products/:id", controllers.DeleteProduct)
