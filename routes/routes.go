@@ -16,44 +16,43 @@ func Start() *echo.Echo {
 	jwtAuth.Use(middleware.JWT([]byte(constants.SECRET_JWT)))
 
 	//Route Products
-	jwtAuth.GET("/products", controllers.GetProductsController)
-	jwtAuth.POST("/products", controllers.CreateProductsController)
-	jwtAuth.PUT("/products/:id", controllers.UpdateProductsController)
-	jwtAuth.DELETE("/products/:id", controllers.DeleteProductController)
+	jwtAuth.GET("/products", controllers.GetProducts)
+	jwtAuth.PUT("/products/:id", controllers.UpdateProducts)
+	jwtAuth.DELETE("/products/:id", controllers.DeleteProduct)
 
 	//Route Categories
-	jwtAuth.GET("/categories", controllers.GetCategoriesController)
-	jwtAuth.POST("/categories", controllers.CreateCategoriesController)
-	jwtAuth.PUT("/categories/:id", controllers.UpdateCategoriesController)
-	jwtAuth.DELETE("/categories/:id", controllers.DeleteCategoriesController)
+	jwtAuth.GET("/categories", controllers.GetCategories)
+	jwtAuth.POST("/categories", controllers.CreateCategories)
+	jwtAuth.PUT("/categories/:id", controllers.UpdateCategories)
+	jwtAuth.DELETE("/categories/:id", controllers.DeleteCategories)
 
 	//Route  CartItems
-	jwtAuth.GET("/cartitems", controllers.GetCartitemsByCartIdController)
-	jwtAuth.POST("/cartitems", controllers.CreateCartitemsController)
-	jwtAuth.PUT("/cartitems/:id", controllers.UpdateCartitemsController)
-	jwtAuth.DELETE("/cartitems/:id", controllers.DeleteCartitemsController)
+	jwtAuth.GET("/cartitems", controllers.GetCartitemsByCartId)
+	jwtAuth.POST("/cartitems", controllers.CreateCartitems)
+	jwtAuth.PUT("/cartitems/:id", controllers.UpdateCartitems)
+	jwtAuth.DELETE("/cartitems/:id", controllers.DeleteCartitems)
 
 	//Route Carts
-	jwtAuth.PUT("/carts/:id", controllers.UpdateCartsController)
+	jwtAuth.PUT("/carts/:id", controllers.UpdateCarts)
 
 	//checkout items
-	jwtAuth.GET("/checkoutitems", controllers.GetCheckoutItemsController)
+	jwtAuth.GET("/checkoutitems", controllers.GetCheckoutItems)
 
 	//Order Auth
-	jwtAuth.POST("/orders", controllers.CreateOrdersController)
-	jwtAuth.GET("/orders", controllers.GetOrderController)
+	jwtAuth.POST("/orders", controllers.CreateOrders)
+	jwtAuth.GET("/orders", controllers.GetOrder)
 
 	//Payment Auth
-	jwtAuth.GET("/payments", controllers.GetPaymentsController)
-	jwtAuth.PUT("/payments/:id", controllers.UpdatePaymentsController)
+	jwtAuth.GET("/payments", controllers.GetPayments)
+	jwtAuth.PUT("/payments/:id", controllers.UpdatePayments)
 
 	// update profile
-	jwtAuth.PUT("/customers/:id", controllers.UpdateProfileCustomersController)
+	jwtAuth.PUT("/customers/:id", controllers.UpdateProfileCustomers)
 
 	// without jwt for login and register
 	// route auth
-	e.POST("/register", controllers.RegisterCustomersController)
-	e.POST("/login", controllers.LoginCustomersController)
+	e.POST("/register", controllers.RegisterCustomers)
+	e.POST("/login", controllers.LoginCustomers)
 
 	return e
 }

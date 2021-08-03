@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-func GetCategoriesController(c echo.Context) error {
+func GetCategories(c echo.Context) error {
 	categories, err := database.GetCategories()
 
 	if err != nil {
@@ -30,7 +30,7 @@ func GetCategoriesController(c echo.Context) error {
 	return c.JSON(http.StatusOK, res)
 }
 
-func CreateCategoriesController(c echo.Context) error {
+func CreateCategories(c echo.Context) error {
 	var post_body models.Categories_post
 
 	// c.Bind(&post_body)
@@ -69,7 +69,7 @@ func CreateCategoriesController(c echo.Context) error {
 	})
 }
 
-func UpdateCategoriesController(c echo.Context) error {
+func UpdateCategories(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	if !utils.StringIsNotNumber(c.Param("id")) {
@@ -117,7 +117,7 @@ func UpdateCategoriesController(c echo.Context) error {
 	})
 }
 
-func DeleteCategoriesController(c echo.Context) error {
+func DeleteCategories(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	if !utils.StringIsNotNumber(c.Param("id")) {

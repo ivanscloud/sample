@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-func UpdateCartsController(c echo.Context) error {
+func UpdateCarts(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	if !utils.StringIsNotNumber(c.Param("id")) {

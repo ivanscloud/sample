@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-func GetProductsController(c echo.Context) error {
+func GetProducts(c echo.Context) error {
 
 	if utils.StringIsNotNumber(c.QueryParam("category")) {
 		id, _ := strconv.Atoi(c.QueryParam("category"))
@@ -100,7 +100,7 @@ func CreateProductsController(c echo.Context) error {
 	})
 }
 
-func UpdateProductsController(c echo.Context) error {
+func UpdateProducts(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	if !utils.StringIsNotNumber(c.Param("id")) {
@@ -152,7 +152,7 @@ func UpdateProductsController(c echo.Context) error {
 
 }
 
-func DeleteProductController(c echo.Context) error {
+func DeleteProduct(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	if !utils.StringIsNotNumber(c.Param("id")) {

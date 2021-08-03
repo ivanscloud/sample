@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-func CreateCartitemsController(c echo.Context) error {
+func CreateCartitems(c echo.Context) error {
 	var post_body models.Cartitems_Post
 
 	// c.Bind(&post_body)
@@ -50,7 +50,7 @@ func CreateCartitemsController(c echo.Context) error {
 	})
 }
 
-func GetCartitemsByCartIdController(c echo.Context) error {
+func GetCartitemsByCartId(c echo.Context) error {
 	if utils.StringIsNotNumber(c.QueryParam("cart")) {
 		id, _ := strconv.Atoi(c.QueryParam("cart"))
 		cartItems, err := database.GetCartitemsByCartsId(id)
@@ -94,7 +94,7 @@ func GetCartitemsByCartIdController(c echo.Context) error {
 	}
 }
 
-func UpdateCartitemsController(c echo.Context) error {
+func UpdateCartitems(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	if !utils.StringIsNotNumber(c.Param("id")) {
@@ -141,7 +141,7 @@ func UpdateCartitemsController(c echo.Context) error {
 	})
 }
 
-func DeleteCartitemsController(c echo.Context) error {
+func DeleteCartitems(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	if !utils.StringIsNotNumber(c.Param("id")) {
