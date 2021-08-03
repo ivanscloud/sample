@@ -28,7 +28,7 @@ func Start() *echo.Echo {
 	jwtAuth.DELETE("/categories/:id", controllers.DeleteCategories)
 
 	//Route  CartItems
-	jwtAuth.GET("/cartitems", controllers.GetCartitemsByCartId)
+	jwtAuth.GET("/cartitems/:id", controllers.GetCartitemsByCartId)
 	jwtAuth.POST("/cartitems", controllers.CreateCartitems)
 	jwtAuth.PUT("/cartitems/:id", controllers.UpdateCartitems)
 	jwtAuth.DELETE("/cartitems/:id", controllers.DeleteCartitems)
