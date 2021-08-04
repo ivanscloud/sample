@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-func CreateOrdersController(c echo.Context) error {
+func CreateOrders(c echo.Context) error {
 	var post_body models.Orders_post
 
 	if e := c.Bind(&post_body); e != nil {
@@ -55,7 +55,7 @@ func CreateOrdersController(c echo.Context) error {
 	})
 }
 
-func GetOrderController(c echo.Context) error {
+func GetOrder(c echo.Context) error {
 	userId := c.QueryParam("user")
 	if !utils.StringIsNotNumber(userId) {
 		return echo.NewHTTPError(http.StatusBadRequest, map[string]interface{}{

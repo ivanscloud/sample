@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-func GetCheckoutItemsController(c echo.Context) error {
+func GetCheckoutItems(c echo.Context) error {
 
 	if !utils.StringIsNotNumber(c.QueryParam("order")) {
 		return echo.NewHTTPError(http.StatusBadRequest, map[string]interface{}{

@@ -23,7 +23,7 @@ func CheckPasswordHash(password, hash string) bool {
 	return err == nil
 }
 
-func RegisterCustomersController(c echo.Context) error {
+func RegisterCustomers(c echo.Context) error {
 	var customerModel models.Customers_register
 
 	if e := c.Bind(&customerModel); e != nil {
@@ -42,9 +42,6 @@ func RegisterCustomersController(c echo.Context) error {
 			"status":  e.Error(),
 		})
 	}
-
-	// Generate "hash" to store from user password
-	// hash, _ := HashPassword(customerModel.Password)
 
 	var customer models.Customers
 	customer.Username = customerModel.Username
@@ -85,7 +82,7 @@ func RegisterCustomersController(c echo.Context) error {
 	})
 }
 
-func LoginCustomersController(c echo.Context) error {
+func LoginCustomers(c echo.Context) error {
 	var customerData models.Customers
 	var customerLogin models.Customers_login
 	var err error
@@ -119,7 +116,7 @@ func LoginCustomersController(c echo.Context) error {
 	})
 }
 
-func UpdateProfileCustomersController(c echo.Context) error {
+func UpdateProfileCustomers(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	if !utils.StringIsNotNumber(c.Param("id")) {

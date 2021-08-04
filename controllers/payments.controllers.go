@@ -11,7 +11,7 @@ import (
 	"github.com/labstack/echo"
 )
 
-func GetPaymentsController(c echo.Context) error {
+func GetPayments(c echo.Context) error {
 	orderid := c.QueryParam("order")
 	if utils.StringIsNotNumber(orderid) {
 		id, _ := strconv.Atoi(orderid)
@@ -46,7 +46,7 @@ func GetPaymentsController(c echo.Context) error {
 	}
 }
 
-func UpdatePaymentsController(c echo.Context) error {
+func UpdatePayments(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	if !utils.StringIsNotNumber(c.Param("id")) {
